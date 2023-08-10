@@ -1,1 +1,1 @@
-System devops path script
+Shell basics
