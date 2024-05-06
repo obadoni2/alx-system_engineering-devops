@@ -1,0 +1,7 @@
+#!/urs/bin/env bash
+# Bash script that display Best SChool 1 time.
+
+for((i=0 i<10;i++))
+do
+     echo "Best School"
+done
