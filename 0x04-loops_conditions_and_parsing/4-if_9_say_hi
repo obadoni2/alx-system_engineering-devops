@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 # display Best school 10 times , but for the 9th iteration
-#display BESt schhool and then hi on a new line.
+# display BESt schhool and then hi on a new line.
 
-count= 0
+count=0
 
-while [$count -lt 10]
+while [ $count -lt 10 ]
 do
-if [$count -eq 9]
-then
- echo "Hi"
-fi
-fi echo "Best school"
-(( count ++))
+    if [ $count -eq 9 ]
+    then
+        echo "Hi"
+    fi
+    echo "Best school"
+    ((count++))
 done
 
