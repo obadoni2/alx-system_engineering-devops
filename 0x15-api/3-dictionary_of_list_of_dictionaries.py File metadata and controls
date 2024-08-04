@@ -1,0 +1,28 @@
+import json
+import requests
+import sys
+
+if __name__ == '__main__':
+    url = "https://jsonplaceholder.typicode.com/users"
+
+    response = requests.get(url)
+    users = response.json()  # Fixed variable name
+
+    dictionary = {}
+    for user in users:  # Fixed variable name
+        user_id = user.get('id')
+        username = user.get('username')
+        url = 'https://jsonplaceholder.typicode.com/users/{}'.format(user_id)  # Fixed endpoint
+        url = url + '/todos'
+        response = requests.get(url)
+        tasks = response.json()  # Fixed space in method call
+        dictionary[user_id] = []
+        for task in tasks:
+            dictionary[user_id].append({
+                "task": task.get('title'),  # Fixed task mapping
+                "completed": task.get('completed'),  # Added correct mapping for completed status
+                "username": username
+            })
+
+    with open('todo_all_employee.json', 'w') as file:
+        json.dump(dictionary, file)
